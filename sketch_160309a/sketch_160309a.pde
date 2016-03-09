@@ -1,0 +1,14 @@
+size (500,500);
+stroke (168, 245, 207);
+strokeWeight (10);
+line (50, 50, 250, 450);
+noStroke();
+fill(219, 42, 57);
+ellipse (300, 100, 150, 150);
+stroke (0, 0, 0);
+strokeWeight (2);
+fill (234, 196, 90, 90);
+ellipseMode(CENTER);
+ellipse (200, 200, 300, 300);
+noFill();
+rect(300, 300, 100, 100);
