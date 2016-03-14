@@ -9,8 +9,7 @@ float sebY=0;
 void setup() {
   size(700, 700);
   pomegranate=loadImage("pomegranate.png");
-  // x=hatar;
-  //y=hatar;
+ 
 }
 
 int value1 = 20;
@@ -18,7 +17,6 @@ int value2 = -20;
 
 void draw() {
   background(255, 255, 255);
-  //imageMode(CENTER);
   image(pomegranate, x, y, width/5, height/5);
   x=x+sebX; 
   y=y+sebY;
