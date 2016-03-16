@@ -5,7 +5,6 @@ void setup() {
 int bg = #000000;
 int r = 50;
 
-
 void draw() {
   background(bg);
   ellipseMode(CENTER);
