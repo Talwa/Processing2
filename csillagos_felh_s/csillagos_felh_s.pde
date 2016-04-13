@@ -8,10 +8,10 @@ class Cloud {
   float s=0;
 
   void legyel() {
-    x= random(0, 400);
-    y= random(0, 400);
+    x= random(0, width);
+    y= random(0, height);
     r1= random(100, 200);
-    r2= random(30, 50);
+    r2= random(40, 70);
     s= random(-2,2);
   }
   void draw_out() {
@@ -67,7 +67,7 @@ Csillag csillagok[] = new Csillag[1000];
 
 Hold hold=new Hold();
 
-Cloud cloud[] = new Cloud[4];
+Cloud cloud[] = new Cloud[50];
 
 void setup() {
   size(500, 500);
@@ -78,15 +78,21 @@ void setup() {
 
 
 
-  szamlalo =0;
+  /*szamlalo =0;
   while (szamlalo<1000) {
     csillagok[szamlalo]= new Csillag();
     csillagok[szamlalo].szuless();
     szamlalo=szamlalo+1;
+  }*/
+  
+  // a for ciklus a számolásra való
+  for(int i=0; i<1000; i=i+1) { 
+    csillagok[i]= new Csillag();
+    csillagok[i].szuless();
   }
 
   szamlalo=0;
-  while (szamlalo<4) {
+  while (szamlalo<50) {
     cloud[szamlalo]= new Cloud();
     cloud[szamlalo].legyel();
     szamlalo=szamlalo+1;
@@ -101,13 +107,11 @@ void draw() {
   background(#081876);
   hold.vilagits();
   hold.mozogj();
-  //cs1.szuless();
-  //cs2.szuless();
-  //cs3.szuless();
-  
-
-
-  //csillagok[1].ragyogj();
+ 
+  if(hold.x>width+40){
+    hold.x=-40;
+  }
+   
   szamlalo = 0;
   while (szamlalo<1000) {
     csillagok[szamlalo].ragyogj();
@@ -115,11 +119,15 @@ void draw() {
   }
 
   szamlalo=0;
-  while (szamlalo<4) {
+  while (szamlalo<50) {
     cloud[szamlalo].swim();
+    if(cloud[szamlalo].x>width+cloud[szamlalo].r1){
+    cloud[szamlalo].x=-cloud[szamlalo].r1;
+    }
+    if(cloud[szamlalo].x<0-cloud[szamlalo].r1){
+    cloud[szamlalo].x=width+cloud[szamlalo].r1;
+    }
     cloud[szamlalo].draw_out();
-    szamlalo=szamlalo+1;
-    
-  }
-      
+    szamlalo=szamlalo+1;  
+  }    
 }
